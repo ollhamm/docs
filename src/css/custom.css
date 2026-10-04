@@ -1,0 +1,611 @@
+/* ==========================================================================
+   Aruna docs theme
+   ========================================================================== */
+
+:root {
+  /* Primary = Aruna orange (light mode) */
+  --ifm-color-primary: #c97d3e;
+  --ifm-color-primary-dark: #b86f34;
+  --ifm-color-primary-darker: #ad6830;
+  --ifm-color-primary-darkest: #8f5628;
+  --ifm-color-primary-light: #da8b48;
+  --ifm-color-primary-lighter: #df924f;
+  --ifm-color-primary-lightest: #eda567;
+
+  --ifm-code-font-size: 93%;
+  --ifm-font-family-base: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  --ifm-heading-font-family: 'Space Grotesk', var(--ifm-font-family-base);
+  --ifm-heading-font-weight: 500;
+  --ifm-font-weight-semibold: 500;
+
+  --ifm-navbar-height: 60px;
+  --ifm-navbar-padding-horizontal: 1.5rem;
+
+  --ifm-global-radius: 0px;
+  --ifm-code-border-radius: 0px;
+  --ifm-button-border-radius: 0px;
+  --ifm-card-border-radius: 0px;
+  --ifm-alert-border-radius: 0px;
+
+  --docusaurus-highlighted-code-line-bg: rgba(201, 125, 62, 0.08);
+
+  /* Shared chrome color (navbar + footer) */
+  --aruna-chrome-bg: #121212;
+}
+
+[data-theme='dark'] {
+  /* Primary = slightly lighter orange in dark context */
+  --ifm-color-primary: #e08a4a;
+  --ifm-color-primary-dark: #d47c3e;
+  --ifm-color-primary-darker: #c97339;
+  --ifm-color-primary-darkest: #a85e2e;
+  --ifm-color-primary-light: #e8974e;
+  --ifm-color-primary-lighter: #efa469;
+  --ifm-color-primary-lightest: #f4ba8a;
+
+  --docusaurus-highlighted-code-line-bg: rgba(224, 138, 74, 0.12);
+
+  /* Canvas backgrounds */
+  --ifm-background-color: #0e0f12;
+  --ifm-background-surface-color: #16181d;
+
+  /* Navbar */
+  --ifm-navbar-background-color: #121212;
+  --ifm-navbar-shadow: 0 1px 0 0 #2a2e36;
+
+  /* Sidebar */
+  --ifm-sidebar-background-color: #0e0f12;
+
+  /* Borders */
+  --ifm-color-emphasis-300: #2a2e36;
+  --ifm-color-emphasis-200: #22262d;
+  --ifm-toc-border-color: #22262d;
+  --ifm-hr-border-color: #2a2e36;
+  --ifm-table-border-color: #2a2e36;
+
+  /* Text */
+  --ifm-font-color-base: #eceae5;
+  --ifm-font-color-secondary: #b9bec6;
+  --ifm-color-content-secondary: #98a0ab;
+
+  /* Headings */
+  --ifm-heading-color: #eceae5;
+
+  /* Sidebar menu */
+  --ifm-menu-color: #98a0ab;
+  --ifm-menu-color-active: #e08a4a;
+  --ifm-menu-color-background-active: rgba(224, 138, 74, 0.08);
+  --ifm-menu-color-background-hover: rgba(236, 234, 229, 0.04);
+  --ifm-menu-link-padding-horizontal: 1rem;
+
+  /* Table of contents */
+  --ifm-toc-link-color: #98a0ab;
+
+  /* Code blocks */
+  --ifm-code-background: #16181d;
+  --prism-background-color: #16181d;
+
+  --ifm-hr-border-width: 1px;
+  --ifm-hr-margin-vertical: 2rem;
+}
+
+hr {
+  border: none;
+  height: 1px;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background: linear-gradient(90deg, transparent, #2a2e36 15%, #2a2e36 85%, transparent);
+  margin: 2rem 0;
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(18, 18, 18, 0.8);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: none;
+}
+
+.navbar__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: #eceae5;
+}
+
+.navbar__logo {
+  height: 22px;
+  width: 22px;
+}
+
+.navbar__link {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.navbar__item svg[class*='iconExternalLink'] {
+  display: none;
+}
+
+.navbar-launch-btn {
+  background: linear-gradient(180deg, #ea9858 0%, #e08a4a 100%);
+  color: #16120b !important;
+  padding: 6px 14px !important;
+  font-size: 0.8rem !important;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+}
+
+.navbar-launch-btn:hover {
+  background: linear-gradient(180deg, #f4ba8a 0%, #efa469 100%) !important;
+  color: #16120b !important;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(18, 18, 18, 0.8);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: none;
+}
+
+@media (max-width: 996px) {
+  .navbar,
+  .navbar.navbar-sidebar--show {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--aruna-chrome-bg);
+  }
+}
+
+/* Drawer sidebar mobile */
+.navbar-sidebar {
+  background: #0e0f12;
+}
+
+.navbar-sidebar__brand {
+  border-bottom: 1px solid #22262d;
+}
+
+.navbar-sidebar__items {
+  background: #0e0f12;
+}
+
+.navbar-sidebar__back {
+  display: none;
+}
+
+
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+:root {
+  --ifm-menu-link-padding-vertical: 0.55rem;  /* default 0.375rem, tinggi tiap item */
+}
+
+/* jarak antar item */
+.menu__list-item:not(:first-child) {
+  margin-top: 0.2rem;
+}
+
+.menu__link {
+  border-radius: 0;
+  font-weight: 400;      /* default Infima memakai semibold */
+  line-height: 1.4;
+}
+
+/* item aktif dan kategori yang terbuka */
+.menu__link--active,
+.menu__link--sublist {
+  font-weight: 400;
+}
+
+[data-theme='dark'] .menu__link--active {
+  color: #e08a4a;
+  background: rgba(224, 138, 74, 0.1);
+  border-left: none;
+  padding-left: var(--ifm-menu-link-padding-horizontal);
+}
+
+[data-theme='dark'] .menu__list-item-collapsible:hover {
+  background: rgba(236, 234, 229, 0.04);
+}
+
+/* ikon panah: kecil dan redup */
+.menu__link--sublist-caret::after,
+.menu__caret::before {
+  background-size: 1.25rem 1.25rem;
+  height: 1rem;
+  width: 1rem;
+  min-width: 1rem;
+}
+
+[data-theme='dark'] .menu__link--sublist-caret::after {
+  filter: invert(1) opacity(0.4);
+}
+
+/* jarak antar grup (sub-menu yang bersarang) */
+.menu__list .menu__list {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h1 { letter-spacing: -0.03em; }
+h2 { letter-spacing: -0.025em; }
+
+/* ==========================================================================
+   Alerts
+   ========================================================================== */
+
+[data-theme='dark'] .alert {
+  border: 1px solid;
+}
+
+[data-theme='dark'] .alert--warning {
+  background: #241a11;
+  border-color: #5a4a30;
+  color: #eceae5;
+}
+
+[data-theme='dark'] .alert--info {
+  background: #121419;
+  border-color: #2a2e36;
+  color: #eceae5;
+}
+
+[data-theme='dark'] .alert--danger {
+  background: #1e1212;
+  border-color: #5a3230;
+  color: #eceae5;
+}
+
+[data-theme='dark'] .alert--success {
+  background: #0f1f1a;
+  border-color: #2e4a3e;
+  color: #eceae5;
+}
+
+/* ==========================================================================
+   Code
+   ========================================================================== */
+
+[data-theme='dark'] .theme-code-block {
+  border: 1px solid #22262d;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875em;
+}
+
+[data-theme='dark'] code {
+  background: #1c2027;
+  color: #efa469;
+  border: 1px solid #2a2e36;
+}
+
+[data-theme='dark'] pre code {
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+[data-theme='dark'] table {
+  display: table;
+  width: 100%;
+  border: 1px solid #22262d;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #14161b 0%, #101216 100%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='dark'] table th,
+[data-theme='dark'] table td {
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 14px 18px;
+}
+
+[data-theme='dark'] table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+[data-theme='dark'] thead tr {
+  background: linear-gradient(180deg, #1c1f26 0%, #171a20 100%);
+  border-bottom: none;
+}
+
+[data-theme='dark'] thead th {
+  border-bottom: 1px solid #2a2e36;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #98a0ab;
+  font-weight: 400;
+}
+
+[data-theme='dark'] tbody tr,
+[data-theme='dark'] tbody tr:nth-child(even) {
+  background: transparent;
+  transition: background 0.15s;
+}
+
+[data-theme='dark'] tbody tr:hover {
+  background: rgba(224, 138, 74, 0.05);
+}
+
+/* kolom pertama: aksen oranye tipis di kiri */
+[data-theme='dark'] tbody td:first-child {
+  position: relative;
+  color: #eceae5;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+
+[data-theme='dark'] tbody tr:hover td:first-child::before {
+  opacity: 1;
+  top: 15%;
+  bottom: 15%;
+}
+
+/* ==========================================================================
+   Table of contents
+   ========================================================================== */
+
+[data-theme='dark'] .table-of-contents__link:hover,
+[data-theme='dark'] .table-of-contents__link--active {
+  color: #e08a4a;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer,
+.footer--dark {
+  --ifm-footer-background-color: var(--aruna-chrome-bg);
+  background: var(--aruna-chrome-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer__title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #98a0ab !important;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.button {
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Home: hero
+   ========================================================================== */
+
+.hero--aruna {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 90% at 50% 0%, rgba(224, 138, 74, 0.18) 0%, rgba(224, 138, 74, 0) 70%),
+    #0e0f12;
+  border-bottom: 1px solid #22262d;
+  padding: 96px 0 80px;
+}
+
+/* subtle grid fading downward */
+.hero--aruna::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(70% 80% at 50% 0%, #000 20%, transparent 100%);
+  mask-image: radial-gradient(70% 80% at 50% 0%, #000 20%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero--aruna > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero--aruna .hero__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #eceae5;
+}
+
+.hero--aruna .hero__subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: #98a0ab;
+  margin-top: 1rem;
+}
+
+
+.hero--aruna .button--secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid #2a2e36;
+  color: #eceae5;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.hero--aruna .button--secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(224, 138, 74, 0.5);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Home: cards
+   ========================================================================== */
+
+.aruna-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.aruna-card {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  padding: 28px 28px 30px;
+  background: linear-gradient(180deg, #16181d 0%, #111318 100%);
+  border: 1px solid #22262d;
+  border-radius: 0px;
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+/* thin light line on the top edge */
+.aruna-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(224, 138, 74, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.aruna-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(224, 138, 74, 0.4);
+  text-decoration: none;
+}
+
+.aruna-card:hover::before {
+  opacity: 1;
+}
+
+.aruna-card__eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e08a4a;
+  margin-bottom: 12px;
+}
+
+.aruna-card__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #eceae5;
+  margin-bottom: 10px;
+}
+
+.aruna-card__body {
+  font-size: 0.875rem;
+  color: #98a0ab;
+  line-height: 1.65;
+  margin: 0;
+}
+
+
+.docusaurus-mermaid-container,
+.docusaurus-mermaid-container svg,
+.docusaurus-mermaid-container .nodeLabel,
+.docusaurus-mermaid-container .edgeLabel,
+.docusaurus-mermaid-container .label,
+.docusaurus-mermaid-container foreignObject div,
+.docusaurus-mermaid-container foreignObject span,
+.docusaurus-mermaid-container foreignObject p {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+.docusaurus-mermaid-container .nodeLabel p,
+.docusaurus-mermaid-container .edgeLabel p {
+  margin: 0;
+}
+
+.docusaurus-mermaid-container svg foreignObject {
+  overflow: visible;
+}
+
+.docusaurus-mermaid-container .nodeLabel,
+.docusaurus-mermaid-container .label,
+.docusaurus-mermaid-container .label div {
+  white-space: nowrap !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+  overflow: visible;
+}
+
+.docusaurus-mermaid-container .nodeLabel p,
+.docusaurus-mermaid-container .label p {
+  margin: 0;
+}
+
+.docusaurus-mermaid-container .node rect,
+.docusaurus-mermaid-container .node polygon {
+  rx: 10px;
+  ry: 10px;
+}
+
+.menu__link--sublist-caret::after,
+.menu__caret::before {
+  background-size: 1.25rem 1.25rem; 
+  height: 1rem;
+  width: 1rem;
+  min-width: 1rem;
+}
+
+/* Mermaid: tanpa shadow, border saja */
+.docusaurus-mermaid-container svg .node,
+.docusaurus-mermaid-container svg .node *,
+.docusaurus-mermaid-container svg .cluster,
+.docusaurus-mermaid-container svg .cluster *,
+.docusaurus-mermaid-container svg .edgePath,
+.docusaurus-mermaid-container svg .edgeLabel {
+  filter: none !important;
+  box-shadow: none !important;
+}
