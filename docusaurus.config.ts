@@ -97,7 +97,7 @@ const config: Config = {
         {
           type: 'html',
           position: 'right',
-          value: '<a class="navbar-launch-btn navbar__item navbar__link" href="https://arunafi.xyz/" target="_blank" rel="noopener noreferrer">Launch App</a>',
+          value: '<a class="navbar-launch-btn navbar__item navbar__link" href="https://arunafi.xyz/markets" target="_blank" rel="noopener noreferrer">Launch App</a>',
         },
       ],
       style: 'dark',
